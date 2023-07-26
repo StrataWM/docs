@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../stratawm.html"><strong aria-hidden="true">1.</strong> StrataWM</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stratawm/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stratawm/install_using_bins.html"><strong aria-hidden="true">1.1.1.</strong> Installing using Binaries</a></li><li class="chapter-item expanded "><a href="../stratawm/compile_from_source.html"><strong aria-hidden="true">1.1.2.</strong> Compiling from Source</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../kagi.html"><strong aria-hidden="true">2.</strong> Kagi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../kagi/getting_started.html"><strong aria-hidden="true">2.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../kagi/install_using_bins.html"><strong aria-hidden="true">2.1.1.</strong> Installing using Binaries</a></li><li class="chapter-item expanded "><a href="../kagi/compile_from_source.html" class="active"><strong aria-hidden="true">2.1.2.</strong> Compiling from Source</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../stratawm.html"><strong aria-hidden="true">1.</strong> StrataWM</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stratawm/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="../stratawm/compile_from_source.html"><strong aria-hidden="true">1.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> Configuring</div></li></ol></li><li class="chapter-item expanded "><a href="../kagi.html"><strong aria-hidden="true">2.</strong> Kagi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../kagi/getting_started.html"><strong aria-hidden="true">2.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="../kagi/compile_from_source.html" class="active"><strong aria-hidden="true">2.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Configuring</div></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -167,12 +167,26 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="compiling-from-source"><a class="header" href="#compiling-from-source">Compiling from Source</a></h1>
+<p>To compile from source, follow these steps</p>
+<h2 id="1-clone-the-repository"><a class="header" href="#1-clone-the-repository">1. Clone the repository</a></h2>
+<pre><code class="language-sh">git clone https://github.com/stratawm/kagi
+</code></pre>
+<h2 id="2-compile-and-install"><a class="header" href="#2-compile-and-install">2. Compile and install</a></h2>
+<p>Now <code>cd</code> into the cloned repository using:</p>
+<pre><code class="language-sh">cd kagi
+</code></pre>
+<p>then run:</p>
+<pre><code class="language-sh"> cargo install --path .
+</code></pre>
+<p>This'll install it for your user. If you want to install it globally, run:</p>
+<pre><code class="language-sh">sudo cargo install --path .
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../kagi/install_using_bins.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../kagi/getting_started.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
@@ -183,7 +197,7 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../kagi/install_using_bins.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../kagi/getting_started.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
@@ -191,22 +205,6 @@
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

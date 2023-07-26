@@ -6,9 +6,12 @@
 
 - [StrataWM](./stratawm.md)
     - [Getting Started](./stratawm/getting_started.md)
-        - [Installing using Binaries](./stratawm/install_using_bins.md)
+        - [Installing using Binaries]()
         - [Compiling from Source](./stratawm/compile_from_source.md)
+    - [Configuring]()
+
 - [Kagi](./kagi.md)
     - [Getting Started](./kagi/getting_started.md) 
-      - [Installing using Binaries](./kagi/install_using_bins.md)
+      - [Installing using Binaries]()
       - [Compiling from Source](./kagi/compile_from_source.md)
+    - [Configuring]()

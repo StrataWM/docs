@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../stratawm.html"><strong aria-hidden="true">1.</strong> StrataWM</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stratawm/getting_started.html" class="active"><strong aria-hidden="true">1.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stratawm/install_using_bins.html"><strong aria-hidden="true">1.1.1.</strong> Installing using Binaries</a></li><li class="chapter-item expanded "><a href="../stratawm/compile_from_source.html"><strong aria-hidden="true">1.1.2.</strong> Compiling from Source</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../kagi.html"><strong aria-hidden="true">2.</strong> Kagi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../kagi/getting_started.html"><strong aria-hidden="true">2.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../kagi/install_using_bins.html"><strong aria-hidden="true">2.1.1.</strong> Installing using Binaries</a></li><li class="chapter-item expanded "><a href="../kagi/compile_from_source.html"><strong aria-hidden="true">2.1.2.</strong> Compiling from Source</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../stratawm.html"><strong aria-hidden="true">1.</strong> StrataWM</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stratawm/getting_started.html" class="active"><strong aria-hidden="true">1.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="../stratawm/compile_from_source.html"><strong aria-hidden="true">1.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> Configuring</div></li></ol></li><li class="chapter-item expanded "><a href="../kagi.html"><strong aria-hidden="true">2.</strong> Kagi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../kagi/getting_started.html"><strong aria-hidden="true">2.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="../kagi/compile_from_source.html"><strong aria-hidden="true">2.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Configuring</div></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -176,7 +176,7 @@
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../stratawm/install_using_bins.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../stratawm/compile_from_source.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -190,29 +190,13 @@
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../stratawm/install_using_bins.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../stratawm/compile_from_source.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
