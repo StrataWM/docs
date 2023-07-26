@@ -1,0 +1,6 @@
+[book]
+authors = ["Anant Narayan"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Strata"
