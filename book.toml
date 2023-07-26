@@ -9,3 +9,8 @@ description = "Documentation for Strata"
 [build]
 build-dir = "docs"
 create-missing = true
+
+[output.html]
+theme = "theme"
+default-theme = "tokyonight"
+preferred-dark-theme = "tokyonight"
