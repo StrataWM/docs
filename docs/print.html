@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="stratawm.html"><strong aria-hidden="true">1.</strong> StrataWM</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="stratawm/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="stratawm/compile_from_source.html"><strong aria-hidden="true">1.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> Configuring</div></li></ol></li><li class="chapter-item expanded "><a href="kagi.html"><strong aria-hidden="true">2.</strong> Kagi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="kagi/getting_started.html"><strong aria-hidden="true">2.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="kagi/compile_from_source.html"><strong aria-hidden="true">2.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Configuring</div></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="stratawm.html"><strong aria-hidden="true">1.</strong> StrataWM</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="stratawm/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="stratawm/compile_from_source.html"><strong aria-hidden="true">1.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="stratawm/configuring.html"><strong aria-hidden="true">1.2.</strong> Configuring</a></li></ol></li><li class="chapter-item expanded "><a href="kagi.html"><strong aria-hidden="true">2.</strong> Kagi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="kagi/getting_started.html"><strong aria-hidden="true">2.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="kagi/compile_from_source.html"><strong aria-hidden="true">2.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="kagi/configuring.html"><strong aria-hidden="true">2.2.</strong> Configuring</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -231,6 +231,7 @@
 </code></pre>
 <h2 id="4-next-steps"><a class="header" href="#4-next-steps">4. Next steps</a></h2>
 <p>Congratulations, if all went well, you should have StrataWM and StrataCTL installed on your system. Next you'd want to install Kagi or a hotkey daemon of your choice. If you want to install Kagi, go to the chapter on the left hand side for compiling from source. Then next chapter will teach you how to configure Strata.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="configuring"><a class="header" href="#configuring">Configuring</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="kagi"><a class="header" href="#kagi">Kagi</a></h1>
 <p>Kagi is a hotkey daemon built using <a href="https://rust-lang.org">Rust</a> and <a href="https://docs.rs/input">libinput</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started-1"><a class="header" href="#getting-started-1">Getting Started</a></h1>
@@ -249,6 +250,7 @@
 <p>This'll install it for your user. If you want to install it globally, run:</p>
 <pre><code class="language-sh">sudo cargo install --path .
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="configuring-1"><a class="header" href="#configuring-1">Configuring</a></h1>
 
                     </main>
 
@@ -267,6 +269,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
