@@ -165,7 +165,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="compiling-from-source"><a class="header" href="#compiling-from-source">Compiling from Source</a></h1>
-<h2 id="dependencies"><a class="header" href="#dependencies">Dependencies</a></h2>
+<h2 id="1-dependencies"><a class="header" href="#1-dependencies">1. Dependencies</a></h2>
 <p>To compile and use Strata, you need some dependencies which have to be installed using a package manager, such as <code>pacman</code> or <code>apt</code>, depending on your distro. The required dependencies are listed below:</p>
 <ul>
 <li><code>udev</code></li>
@@ -184,10 +184,19 @@
 <p>If you're on Debian, or Debian based distros such as Ubuntu, Mate, Zorin, etc... you can install these using this command:</p>
 <pre><code class="language-sh">sudo apt-get install libudev-dev libgbm-dev libxkbcommon-dev libegl1-mesa-dev libwayland-dev libinput-dev libdbus-1-dev libsystemd-dev libseat-dev
 </code></pre>
-<h3 id="1-clone-the-repository"><a class="header" href="#1-clone-the-repository">1. Clone the repository</a></h3>
+<h2 id="2-installing-rust"><a class="header" href="#2-installing-rust">2. Installing Rust</a></h2>
+<p>To compile Strata, you have to install Rust:</p>
+<h3 id="all-linux-distros"><a class="header" href="#all-linux-distros">All Linux distros</a></h3>
+<pre><code class="language-sh">curl https://sh.rustup.rs -sSf | sh
+</code></pre>
+<h3 id="arch-linux"><a class="header" href="#arch-linux">Arch Linux</a></h3>
+<pre><code class="language-sh">sudo pacman -S rust
+</code></pre>
+<h2 id="3-compiling"><a class="header" href="#3-compiling">3. Compiling</a></h2>
+<h3 id="31-clone-the-repository"><a class="header" href="#31-clone-the-repository">3.1 Clone the repository</a></h3>
 <pre><code class="language-sh">git clone https://github.com/stratawm/stratawm
 </code></pre>
-<h3 id="2-compile-and-install"><a class="header" href="#2-compile-and-install">2. Compile and Install</a></h3>
+<h3 id="32-compile-and-install"><a class="header" href="#32-compile-and-install">3.2 Compile and Install</a></h3>
 <p>To install, <code>cd</code> into the cloned repo and then run:</p>
 <pre><code class="language-sh">cargo install --path .
 </code></pre>

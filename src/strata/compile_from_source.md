@@ -1,6 +1,6 @@
 # Compiling from Source
 
-## Dependencies
+## 1. Dependencies
 
 To compile and use Strata, you need some dependencies which have to be installed using a package manager, such as `pacman` or `apt`, depending on your distro. The required dependencies are listed below:
 
@@ -26,12 +26,30 @@ If you're on Debian, or Debian based distros such as Ubuntu, Mate, Zorin, etc...
 sudo apt-get install libudev-dev libgbm-dev libxkbcommon-dev libegl1-mesa-dev libwayland-dev libinput-dev libdbus-1-dev libsystemd-dev libseat-dev
 ```
 
- ### 1. Clone the repository
+## 2. Installing Rust
+
+To compile Strata, you have to install Rust:
+
+### All Linux distros
+
+```sh
+curl https://sh.rustup.rs -sSf | sh
+```
+
+### Arch Linux
+
+```sh
+sudo pacman -S rust
+```
+
+
+## 3. Compiling
+ ### 3.1 Clone the repository
  ```sh
  git clone https://github.com/stratawm/stratawm
  ```
 
- ### 2. Compile and Install
+ ### 3.2 Compile and Install
  To install, `cd` into the cloned repo and then run:
  ```sh
  cargo install --path .
