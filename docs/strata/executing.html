@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Default Config - Strata</title>
+        <title>Executing - Strata</title>
 
 
         <!-- Custom HTML head -->
@@ -12,19 +12,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="icon" href="../../favicon.svg">
-        <link rel="shortcut icon" href="../../favicon.png">
-        <link rel="stylesheet" href="../../css/variables.css">
-        <link rel="stylesheet" href="../../css/general.css">
-        <link rel="stylesheet" href="../../css/chrome.css">
-        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
 
         <!-- Custom theme stylesheets -->
 
@@ -33,7 +33,7 @@
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
-            var path_to_root = "../../";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "tokyonight" : "tokyonight";
         </script>
 
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Strata</li><li class="chapter-item expanded "><a href="../../strata/getting_started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="../../strata/compile_from_source.html"><strong aria-hidden="true">1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="../../strata/executing.html"><strong aria-hidden="true">2.</strong> Executing</a></li><li class="chapter-item expanded "><a href="../../strata/configuring.html"><strong aria-hidden="true">3.</strong> Configuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../strata/configuring/default.html" class="active"><strong aria-hidden="true">3.1.</strong> Default Config</a></li><li class="chapter-item expanded "><a href="../../strata/configuring/config_api.html"><strong aria-hidden="true">3.2.</strong> Config API</a></li></ol></li><li class="chapter-item expanded "><li class="part-title"></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../../misc/contributors.html">Contributors</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Strata</li><li class="chapter-item expanded "><a href="../strata/getting_started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="../strata/compile_from_source.html"><strong aria-hidden="true">1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="../strata/executing.html" class="active"><strong aria-hidden="true">2.</strong> Executing</a></li><li class="chapter-item expanded "><a href="../strata/configuring.html"><strong aria-hidden="true">3.</strong> Configuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../strata/configuring/default.html"><strong aria-hidden="true">3.1.</strong> Default Config</a></li><li class="chapter-item expanded "><a href="../strata/configuring/config_api.html"><strong aria-hidden="true">3.2.</strong> Config API</a></li></ol></li><li class="chapter-item expanded "><li class="part-title"></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../misc/contributors.html">Contributors</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -135,7 +135,7 @@
                     <h1 class="menu-title">Strata</h1>
 
                     <div class="right-buttons">
-                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -164,131 +164,21 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="default-config"><a class="header" href="#default-config">Default Config</a></h1>
-<pre><code class="language-lua">local strata = require(&quot;strata&quot;)
-
-local function close_all_windows()
-	for _, window in ipairs(strata.current_workspace:get_windows()) do
-		window:close()
-	end
-end
-
-strata.set_config {
-	autostart = {
-		{ &quot;kitty --title Terminal&quot; },
-	},
-	general = {
-		workspaces = 9,
-		gaps_in = 8,
-		gaps_out = 12,
-		kb_repeat = { 500, 250 },
-	},
-	decorations = {
-		border = {
-			width = 2,
-			active = &quot;#FFF&quot;,
-			inactive = &quot;#131418&quot;,
-			radius = 5,
-		},
-		window = {
-			opacity = 0.9,
-		},
-		blur = {
-			enabled = true,
-			size = 2,
-			passes = 3,
-			optimize = true,
-		},
-		shadow = {
-			enabled = true,
-			size = 2,
-			blur = 3,
-			color = &quot;#FFF&quot;,
-		},
-	},
-	tiling = {
-		layout = &quot;dwindle&quot;,
-	},
-	animations = {
-		enabled = true,
-	},
-	bindings = {
-		{
-			keys = { &quot;CTRL&quot;, &quot;SHIFT&quot;, &quot;Q&quot; },
-			cmd = close_all_windows,
-		},
-		{
-			keys = { &quot;WIN&quot;, &quot;RETURN&quot; },
-			cmd = strata.cmd.spawn(&quot;kitty --title Terminal&quot;),
-		},
-		{
-			keys = { &quot;WIN&quot;, &quot;SPACE&quot; },
-			cmd = strata.cmd.spawn(&quot;rofi --show drun&quot;),
-		},
-	},
-	rules = {
-		{
-			triggers = { { event = &quot;win_open_pre&quot;, class_name = &quot;firefox&quot; } },
-			action = function(window) window.send_to_workspace(1) end,
-		},
-		{
-			triggers = {
-				{ event = &quot;win_open_pre&quot;, class_name = &quot;mpv&quot; },
-				{ event = &quot;win_open_pre&quot;, workspace = 1, class_name = &quot;kitty&quot; },
-			},
-			action = function(window) window.set_floating() end,
-		},
-	},
-}
-
-strata.set_bindings {
-	{
-		keys = { &quot;CTRL&quot;, &quot;SHIFT&quot;, &quot;Q&quot; },
-		cmd = close_all_windows,
-	},
-	{
-		keys = { &quot;WIN&quot;, &quot;RETURN&quot; },
-		cmd = strata.cmd.spawn(&quot;kitty --title Terminal&quot;),
-	},
-	{
-		keys = { &quot;WIN&quot;, &quot;SPACE&quot; },
-		cmd = strata.cmd.spawn(&quot;rofi --show drun&quot;),
-	},
-}
-
-strata.set_rules {
-	{
-		triggers = { event = &quot;win_open_pre&quot;, class_name = &quot;firefox&quot; },
-		action = function(window) window.send_to_workspace(1) end,
-	},
-	{
-		triggers = {
-			{ event = &quot;win_open_pre&quot;, class_name = &quot;mpv&quot; },
-			{ event = &quot;win_open_pre&quot;, workspace = 1, class_name = { &quot;kitty&quot;, &quot;wezterm&quot; } },
-		},
-		action = function(window) window.set_floating() end,
-	},
-
-	strata.rules.bind_to_workspace(1, &quot;firefox&quot;),
-	strata.rules.bind_to_workspace {
-		{ 1, &quot;firefox&quot; },
-		{ 2, &quot;neovide&quot; },
-		{ 10, &quot;slack&quot; },
-	},
-
-	strata.rules.set_floating(&quot;mpv&quot;),
-}
+                        <h1 id="executing"><a class="header" href="#executing">Executing</a></h1>
+<p>To start Strata, you can run this command from a terminal</p>
+<pre><code class="language-sh">stratawm --backend winit
 </code></pre>
+<p>This will start Strata using the <code>winit</code> backend. For this to work, another X11 window manager or another Wayland should be running. Support for launching from the TTY will be added shortly.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../strata/configuring.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../strata/compile_from_source.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../../strata/configuring/config_api.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../strata/configuring.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -298,11 +188,11 @@ strata.set_rules {
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../strata/configuring.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../strata/compile_from_source.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../../strata/configuring/config_api.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../strata/configuring.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -333,13 +223,13 @@ strata.set_rules {
         </script>
 
 
-        <script src="../../elasticlunr.min.js"></script>
-        <script src="../../mark.min.js"></script>
-        <script src="../../searcher.js"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="../../clipboard.min.js"></script>
-        <script src="../../highlight.js"></script>
-        <script src="../../book.js"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 
