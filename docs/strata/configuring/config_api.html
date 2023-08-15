@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Config Options - Strata</title>
+        <title>Config API - Strata</title>
 
 
         <!-- Custom HTML head -->
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../strata.html"><strong aria-hidden="true">1.</strong> Strata</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../strata/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="../../strata/compile_from_source.html"><strong aria-hidden="true">1.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="../../strata/configuring.html"><strong aria-hidden="true">1.2.</strong> Configuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../strata/configuring/default.html"><strong aria-hidden="true">1.2.1.</strong> Default Config</a></li><li class="chapter-item expanded "><a href="../../strata/configuring/config_options.html" class="active"><strong aria-hidden="true">1.2.2.</strong> Config Options</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../strata.html"><strong aria-hidden="true">1.</strong> Strata</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../strata/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="../../strata/compile_from_source.html"><strong aria-hidden="true">1.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="../../strata/configuring.html"><strong aria-hidden="true">1.2.</strong> Configuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../strata/configuring/default.html"><strong aria-hidden="true">1.2.1.</strong> Default Config</a></li><li class="chapter-item expanded "><a href="../../strata/configuring/config_api.html" class="active"><strong aria-hidden="true">1.2.2.</strong> Config API</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -164,8 +164,8 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="config-options"><a class="header" href="#config-options">Config Options</a></h1>
-<p>The config consists of a main module called <code>strata</code> which exposes a bunch of helper functions which are used to configure the compositor. This page shows all the functions and options available.</p>
+                        <h1 id="config-api"><a class="header" href="#config-api">Config API</a></h1>
+<p>You can configure Strata through an API which contains functions that are called from the Lua script. It consists of a main module called <code>strata</code> which exposes a bunch of helper functions which are used to configure different parts the compositor like key bindings and window rules. This page shows all the functions and options available.</p>
 <ul>
 <li><a href="#strata"><code>strata</code></a>
 <ul>
@@ -182,6 +182,152 @@
 </ul>
 <h2 id="strata"><a class="header" href="#strata"><code>strata</code></a></h2>
 <p>This is the main module which contains all helper functions and variables accessible to the user.</p>
+<h3 id="1-cmd"><a class="header" href="#1-cmd">1. <code>cmd</code></a></h3>
+<p>Contains commonly used commands.</p>
+<h4 id="11-spawn"><a class="header" href="#11-spawn">1.1 <code>spawn</code></a></h4>
+<p>This command is used to launch programs.</p>
+<p><strong>Arguments</strong></p>
+<ol>
+<li><code>command</code> - the command to execute.</li>
+</ol>
+<p><strong>Usage</strong></p>
+<pre><code class="language-lua">local strata = require(&quot;strata&quot;)
+
+strata.spawn(&quot;kitty --title Terminal&quot;)
+</code></pre>
+<h3 id="2-set_config"><a class="header" href="#2-set_config">2. <code>set_config</code></a></h3>
+<p>Used to set the static configuration for the compositor.</p>
+<p><strong>Arguments</strong></p>
+<ol>
+<li><code>config</code> - Lua table</li>
+</ol>
+<p><strong>Usage</strong></p>
+<pre><code class="language-lua">local strata = require(&quot;strata&quot;)
+
+strata.set_config {
+	autostart = {
+		{ &quot;kitty --title Terminal&quot; },
+	},
+	general = {
+		workspaces = 9,
+		gaps_in = 8,
+		gaps_out = 12,
+		kb_repeat = { 500, 250 },
+	},
+	decorations = {
+		border = {
+			width = 2,
+			active = &quot;#FFF&quot;,
+			inactive = &quot;#131418&quot;,
+			radius = 5,
+		},
+		window = {
+			opacity = 0.9,
+		},
+		blur = {
+			enabled = true,
+			size = 2,
+			passes = 3,
+			optimize = true,
+		},
+		shadow = {
+			enabled = true,
+			size = 2,
+			blur = 3,
+			color = &quot;#FFF&quot;,
+		},
+	},
+	tiling = {
+		layout = &quot;dwindle&quot;,
+	},
+	animations = {
+		enabled = true,
+	},
+	bindings = {
+		{
+			keys = { &quot;CTRL&quot;, &quot;SHIFT&quot;, &quot;Q&quot; },
+			cmd = close_all_windows,
+		},
+		{
+			keys = { &quot;WIN&quot;, &quot;RETURN&quot; },
+			cmd = strata.cmd.spawn(&quot;kitty --title Terminal&quot;),
+		},
+		{
+			keys = { &quot;WIN&quot;, &quot;SPACE&quot; },
+			cmd = strata.cmd.spawn(&quot;rofi --show drun&quot;),
+		},
+	},
+	rules = {
+		{
+			triggers = { { event = &quot;win_open_pre&quot;, class_name = &quot;firefox&quot; } },
+			action = function(window) window.send_to_workspace(1) end,
+		},
+		{
+			triggers = {
+				{ event = &quot;win_open_pre&quot;, class_name = &quot;mpv&quot; },
+				{ event = &quot;win_open_pre&quot;, workspace = 1, class_name = &quot;kitty&quot; },
+			},
+			action = function(window) window.set_floating() end,
+		},
+	},
+}
+</code></pre>
+<h3 id="3-set_bindings"><a class="header" href="#3-set_bindings">3. <code>set_bindings</code></a></h3>
+<p>Used to set the key bindings for the compositor.</p>
+<p><strong>Arguments</strong></p>
+<ol>
+<li><code>bindings</code> - Lua table</li>
+</ol>
+<p><strong>Usage</strong></p>
+<pre><code class="language-lua">local strata = require(&quot;strata&quot;)
+
+strata.set_bindings {
+	{
+		keys = { &quot;CTRL&quot;, &quot;SHIFT&quot;, &quot;Q&quot; },
+		cmd = close_all_windows,
+	},
+	{
+		keys = { &quot;WIN&quot;, &quot;RETURN&quot; },
+		cmd = strata.cmd.spawn(&quot;kitty --title Terminal&quot;),
+	},
+	{
+		keys = { &quot;WIN&quot;, &quot;SPACE&quot; },
+		cmd = strata.cmd.spawn(&quot;rofi --show drun&quot;),
+	},
+}
+</code></pre>
+<h3 id="4-set_rules"><a class="header" href="#4-set_rules">4. <code>set_rules</code></a></h3>
+<p>Used to set the window rules for the compositor.</p>
+<p><strong>Arguments</strong></p>
+<ol>
+<li><code>rules</code> - Lua table</li>
+</ol>
+<p><strong>Usage</strong></p>
+<pre><code class="language-lua">local strata = require(&quot;strata&quot;)
+
+strata.set_rules {
+	{
+		triggers = { event = &quot;win_open_pre&quot;, class_name = &quot;firefox&quot; },
+		action = function(window) window.send_to_workspace(1) end,
+	},
+	{
+		triggers = {
+			{ event = &quot;win_open_pre&quot;, class_name = &quot;mpv&quot; },
+			{ event = &quot;win_open_pre&quot;, workspace = 1, class_name = { &quot;kitty&quot;, &quot;wezterm&quot; } },
+		},
+		action = function(window) window.set_floating() end,
+	},
+
+	strata.rules.bind_to_workspace(1, &quot;firefox&quot;),
+	strata.rules.bind_to_workspace {
+		{ 1, &quot;firefox&quot; },
+		{ 2, &quot;neovide&quot; },
+		{ 10, &quot;slack&quot; },
+	},
+
+	strata.rules.set_floating(&quot;mpv&quot;),
+}
+</code></pre>
 
                     </main>
 
