@@ -2,20 +2,20 @@
 You can configure Strata through an API which contains functions that are called from the Lua script. It consists of a main module called `strata` which exposes a bunch of helper functions which are used to configure different parts the compositor like key bindings and window rules. This page shows all the functions and options available.
 
 - [`strata`](#strata)
-    - [`cmd`](#cmd)
-      - [`spawn`](#spawn)
-    - [`set_config`](#set_config)
-    - [`set_bindings`](#set_bindings)
-    - [`set_rules`](#set_rules)
+    - [`cmd`](#1-cmd)
+      - [`spawn`](#11-spawn)
+    - [`set_config`](#2-set_config)
+    - [`set_bindings`](#3-set_bindings)
+    - [`set_rules`](#4-set_rules)
 
-## `strata`
+# `strata`
 This is the main module which contains all helper functions and variables accessible to the user.
 
-### 1. `cmd`
+## 1. `cmd`
 
 Contains commonly used commands.
 
-#### 1.1 `spawn`
+### 1.1 `spawn`
 
 This command is used to launch programs.
 
@@ -29,7 +29,7 @@ local strata = require("strata")
 strata.spawn("kitty --title Terminal")
 ```
 
-### 2. `set_config`
+## 2. `set_config`
 Used to set the static configuration for the compositor.
 
 **Arguments**
@@ -108,7 +108,7 @@ strata.set_config {
 }
 ```
 
-### 3. `set_bindings`
+## 3. `set_bindings`
 Used to set the key bindings for the compositor.
 
 **Arguments**
@@ -134,7 +134,7 @@ strata.set_bindings {
 }
 ```
 
-### 4. `set_rules`
+## 4. `set_rules`
 Used to set the window rules for the compositor.
 
 **Arguments**

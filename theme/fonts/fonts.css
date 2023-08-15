@@ -109,3 +109,8 @@
   font-family: 'JetBrains Mono';
   src: url('jetbrains_mono.woff2');
 }
+
+@font-face {
+  font-family: 'Victor Mono';
+  src: url('VictorMono-SemiBold.ttf');
+}

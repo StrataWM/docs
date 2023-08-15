@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../strata.html"><strong aria-hidden="true">1.</strong> Strata</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../strata/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="../../strata/compile_from_source.html"><strong aria-hidden="true">1.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="../../strata/configuring.html"><strong aria-hidden="true">1.2.</strong> Configuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../strata/configuring/default.html"><strong aria-hidden="true">1.2.1.</strong> Default Config</a></li><li class="chapter-item expanded "><a href="../../strata/configuring/config_api.html" class="active"><strong aria-hidden="true">1.2.2.</strong> Config API</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Strata</li><li class="chapter-item expanded "><a href="../../strata/getting_started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="../../strata/compile_from_source.html"><strong aria-hidden="true">1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="../../strata/configuring.html"><strong aria-hidden="true">2.</strong> Configuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../strata/configuring/default.html"><strong aria-hidden="true">2.1.</strong> Default Config</a></li><li class="chapter-item expanded "><a href="../../strata/configuring/config_api.html" class="active"><strong aria-hidden="true">2.2.</strong> Config API</a></li></ol></li><li class="chapter-item expanded "><li class="part-title"></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../../misc/contributors.html">Contributors</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -169,22 +169,22 @@
 <ul>
 <li><a href="#strata"><code>strata</code></a>
 <ul>
-<li><a href="#cmd"><code>cmd</code></a>
+<li><a href="#1-cmd"><code>cmd</code></a>
 <ul>
-<li><a href="#spawn"><code>spawn</code></a></li>
+<li><a href="#11-spawn"><code>spawn</code></a></li>
 </ul>
 </li>
-<li><a href="#set_config"><code>set_config</code></a></li>
-<li><a href="#set_bindings"><code>set_bindings</code></a></li>
-<li><a href="#set_rules"><code>set_rules</code></a></li>
+<li><a href="#2-set_config"><code>set_config</code></a></li>
+<li><a href="#3-set_bindings"><code>set_bindings</code></a></li>
+<li><a href="#4-set_rules"><code>set_rules</code></a></li>
 </ul>
 </li>
 </ul>
-<h2 id="strata"><a class="header" href="#strata"><code>strata</code></a></h2>
+<h1 id="strata"><a class="header" href="#strata"><code>strata</code></a></h1>
 <p>This is the main module which contains all helper functions and variables accessible to the user.</p>
-<h3 id="1-cmd"><a class="header" href="#1-cmd">1. <code>cmd</code></a></h3>
+<h2 id="1-cmd"><a class="header" href="#1-cmd">1. <code>cmd</code></a></h2>
 <p>Contains commonly used commands.</p>
-<h4 id="11-spawn"><a class="header" href="#11-spawn">1.1 <code>spawn</code></a></h4>
+<h3 id="11-spawn"><a class="header" href="#11-spawn">1.1 <code>spawn</code></a></h3>
 <p>This command is used to launch programs.</p>
 <p><strong>Arguments</strong></p>
 <ol>
@@ -195,7 +195,7 @@
 
 strata.spawn(&quot;kitty --title Terminal&quot;)
 </code></pre>
-<h3 id="2-set_config"><a class="header" href="#2-set_config">2. <code>set_config</code></a></h3>
+<h2 id="2-set_config"><a class="header" href="#2-set_config">2. <code>set_config</code></a></h2>
 <p>Used to set the static configuration for the compositor.</p>
 <p><strong>Arguments</strong></p>
 <ol>
@@ -272,7 +272,7 @@ strata.set_config {
 	},
 }
 </code></pre>
-<h3 id="3-set_bindings"><a class="header" href="#3-set_bindings">3. <code>set_bindings</code></a></h3>
+<h2 id="3-set_bindings"><a class="header" href="#3-set_bindings">3. <code>set_bindings</code></a></h2>
 <p>Used to set the key bindings for the compositor.</p>
 <p><strong>Arguments</strong></p>
 <ol>
@@ -296,7 +296,7 @@ strata.set_bindings {
 	},
 }
 </code></pre>
-<h3 id="4-set_rules"><a class="header" href="#4-set_rules">4. <code>set_rules</code></a></h3>
+<h2 id="4-set_rules"><a class="header" href="#4-set_rules">4. <code>set_rules</code></a></h2>
 <p>Used to set the window rules for the compositor.</p>
 <p><strong>Arguments</strong></p>
 <ol>
@@ -337,6 +337,9 @@ strata.set_rules {
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next" href="../../misc/contributors.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -348,6 +351,9 @@ strata.set_rules {
                         <i class="fa fa-angle-left"></i>
                     </a>
 
+                    <a rel="next" href="../../misc/contributors.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>

@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="strata.html"><strong aria-hidden="true">1.</strong> Strata</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="strata/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="strata/compile_from_source.html"><strong aria-hidden="true">1.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="strata/configuring.html"><strong aria-hidden="true">1.2.</strong> Configuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="strata/configuring/default.html"><strong aria-hidden="true">1.2.1.</strong> Default Config</a></li><li class="chapter-item expanded "><a href="strata/configuring/config_api.html"><strong aria-hidden="true">1.2.2.</strong> Config API</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Strata</li><li class="chapter-item expanded "><a href="strata/getting_started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="strata/compile_from_source.html"><strong aria-hidden="true">1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="strata/configuring.html"><strong aria-hidden="true">2.</strong> Configuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="strata/configuring/default.html"><strong aria-hidden="true">2.1.</strong> Default Config</a></li><li class="chapter-item expanded "><a href="strata/configuring/config_api.html"><strong aria-hidden="true">2.2.</strong> Config API</a></li></ol></li><li class="chapter-item expanded "><li class="part-title"></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="misc/contributors.html">Contributors</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -165,13 +165,9 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+                        <p><img src="images/profile_banner.png" alt="" /></p>
 <p>Strata is a cutting-edge, robust and sleek Wayland compositor written in <a href="https://rust-lang.org">Rust</a> using the <a href="https://github.com/smithay/smithay">Smithay</a> library. It is designed to be minimal and flexible yet customizable. It is configured in Lua which makes it possible to add custom functions and scripts. The ability to extend the compositor using plugins will be added in the near future.</p>
 <h2 id="some-useful-information"><a class="header" href="#some-useful-information">Some useful information</a></h2>
-<p>Strata is a <strong>Wayland Compositor</strong>, which is <em><strong>very</strong></em> different from an X11 Window Manager. Strata includes both a server and a client, whereas in an X11 window manager, the WM only comes with the client. The rest is done by the Xorg server.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="strata"><a class="header" href="#strata">Strata</a></h1>
-<p>Strata is a cutting-edge, robust and sleek Wayland compositor written in <a href="https://rust-lang.org">Rust</a> using the <a href="https://github.com/smithay/smithay">Smithay</a> library. It is designed to be minimal and flexible yet customizable. It is configured in Lua which makes it possible to add custom functions and scripts. The ability to extend the compositor using plugins will be added in the near future.</p>
-<h2 id="some-useful-information-1"><a class="header" href="#some-useful-information-1">Some useful information</a></h2>
 <p>Strata is a <strong>Wayland Compositor</strong>, which is <em><strong>very</strong></em> different from an X11 Window Manager. Strata includes both a server and a client, whereas in an X11 window manager, the WM only comes with the client. The rest is done by the Xorg server.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
 <p>Currently, to use Strata, you have to compile it from source using Rust.</p>
@@ -330,22 +326,22 @@ strata.set_rules {
 <ul>
 <li><a href="strata/configuring/config_api.html#strata"><code>strata</code></a>
 <ul>
-<li><a href="strata/configuring/config_api.html#cmd"><code>cmd</code></a>
+<li><a href="strata/configuring/config_api.html#1-cmd"><code>cmd</code></a>
 <ul>
-<li><a href="strata/configuring/config_api.html#spawn"><code>spawn</code></a></li>
+<li><a href="strata/configuring/config_api.html#11-spawn"><code>spawn</code></a></li>
 </ul>
 </li>
-<li><a href="strata/configuring/config_api.html#set_config"><code>set_config</code></a></li>
-<li><a href="strata/configuring/config_api.html#set_bindings"><code>set_bindings</code></a></li>
-<li><a href="strata/configuring/config_api.html#set_rules"><code>set_rules</code></a></li>
+<li><a href="strata/configuring/config_api.html#2-set_config"><code>set_config</code></a></li>
+<li><a href="strata/configuring/config_api.html#3-set_bindings"><code>set_bindings</code></a></li>
+<li><a href="strata/configuring/config_api.html#4-set_rules"><code>set_rules</code></a></li>
 </ul>
 </li>
 </ul>
-<h2 id="strata-1"><a class="header" href="#strata-1"><code>strata</code></a></h2>
+<h1 id="strata"><a class="header" href="#strata"><code>strata</code></a></h1>
 <p>This is the main module which contains all helper functions and variables accessible to the user.</p>
-<h3 id="1-cmd"><a class="header" href="#1-cmd">1. <code>cmd</code></a></h3>
+<h2 id="1-cmd"><a class="header" href="#1-cmd">1. <code>cmd</code></a></h2>
 <p>Contains commonly used commands.</p>
-<h4 id="11-spawn"><a class="header" href="#11-spawn">1.1 <code>spawn</code></a></h4>
+<h3 id="11-spawn"><a class="header" href="#11-spawn">1.1 <code>spawn</code></a></h3>
 <p>This command is used to launch programs.</p>
 <p><strong>Arguments</strong></p>
 <ol>
@@ -356,7 +352,7 @@ strata.set_rules {
 
 strata.spawn(&quot;kitty --title Terminal&quot;)
 </code></pre>
-<h3 id="2-set_config"><a class="header" href="#2-set_config">2. <code>set_config</code></a></h3>
+<h2 id="2-set_config"><a class="header" href="#2-set_config">2. <code>set_config</code></a></h2>
 <p>Used to set the static configuration for the compositor.</p>
 <p><strong>Arguments</strong></p>
 <ol>
@@ -433,7 +429,7 @@ strata.set_config {
 	},
 }
 </code></pre>
-<h3 id="3-set_bindings"><a class="header" href="#3-set_bindings">3. <code>set_bindings</code></a></h3>
+<h2 id="3-set_bindings"><a class="header" href="#3-set_bindings">3. <code>set_bindings</code></a></h2>
 <p>Used to set the key bindings for the compositor.</p>
 <p><strong>Arguments</strong></p>
 <ol>
@@ -457,7 +453,7 @@ strata.set_bindings {
 	},
 }
 </code></pre>
-<h3 id="4-set_rules"><a class="header" href="#4-set_rules">4. <code>set_rules</code></a></h3>
+<h2 id="4-set_rules"><a class="header" href="#4-set_rules">4. <code>set_rules</code></a></h2>
 <p>Used to set the window rules for the compositor.</p>
 <p><strong>Arguments</strong></p>
 <ol>
@@ -489,6 +485,7 @@ strata.set_rules {
 	strata.rules.set_floating(&quot;mpv&quot;),
 }
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contributors"><a class="header" href="#contributors">Contributors</a></h1>
 
                     </main>
 
