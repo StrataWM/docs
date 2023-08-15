@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html" class="active">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="stratawm.html"><strong aria-hidden="true">1.</strong> StrataWM</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="stratawm/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="stratawm/compile_from_source.html"><strong aria-hidden="true">1.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="stratawm/configuring.html"><strong aria-hidden="true">1.2.</strong> Configuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="stratawm/configuring/default.html"><strong aria-hidden="true">1.2.1.</strong> Default Config</a></li><li class="chapter-item expanded "><a href="stratawm/configuring/possible_values.html"><strong aria-hidden="true">1.2.2.</strong> Possible Values</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="kagi.html"><strong aria-hidden="true">2.</strong> Kagi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="kagi/getting_started.html"><strong aria-hidden="true">2.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="kagi/compile_from_source.html"><strong aria-hidden="true">2.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="kagi/configuring.html"><strong aria-hidden="true">2.2.</strong> Configuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="kagi/configuring/default.html"><strong aria-hidden="true">2.2.1.</strong> Default Config</a></li><li class="chapter-item expanded "><a href="kagi/configuring/possible_values.html"><strong aria-hidden="true">2.2.2.</strong> Possible Values</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html" class="active">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="strata.html"><strong aria-hidden="true">1.</strong> Strata</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="strata/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="strata/compile_from_source.html"><strong aria-hidden="true">1.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="strata/configuring.html"><strong aria-hidden="true">1.2.</strong> Configuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="strata/configuring/default.html"><strong aria-hidden="true">1.2.1.</strong> Default Config</a></li><li class="chapter-item expanded "><a href="strata/configuring/config_options.html"><strong aria-hidden="true">1.2.2.</strong> Config Options</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -165,33 +165,16 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>Strata is a dynamic and sleek Wayland compositor and window manager for GNU/Linux systems. It's written completely in <a href="https://rust-lang.org">Rust</a> using the <a href="https://github.com/smithay/smithay">Smithay</a> library. Strata is made to be modular. It is done this way so that you, the user can mix N match different components to make Strata work the way you want. Strata follows this architecture, which is inspired by <a href="https://github.com/baskerville/bspwm">BSPWM</a>:</p>
-<pre><code class="language-txt">    ╭───────────────╮       ╭───────────╮       ╭──────────╮
-    │ Hotkey Daemon │ ────&gt; │ StrataCTL │ ────&gt; │ StrataWM │
-    ╰───────────────╯       ╰───────────╯       ╰──────────╯
-</code></pre>
-<p>This makes it possible so that you can interchange components, for example, instead of using Kagi, the official Strata hotkey daemon, you can use <a href="https://github.com/waycrate/swhkd">SWHKD</a> or even make your own. As Strata grows in complexity, this architecture will, hopefully, prove to be useful.</p>
+<p>Strata is a cutting-edge, robust and sleek Wayland compositor written in <a href="https://rust-lang.org">Rust</a> using the <a href="https://github.com/smithay/smithay">Smithay</a> library. It is designed to be minimal and flexible yet customizable. It is configured in Lua which makes it possible to add custom functions and scripts. The ability to extend the compositor using plugins will be added in the near future.</p>
 <h2 id="some-useful-information"><a class="header" href="#some-useful-information">Some useful information</a></h2>
-<ol>
-<li>
-<p>StrataWM is a <strong>Wayland Compositor</strong>, which is <em><strong>very</strong></em> different from an X11 Window Manager. In this case, Strata is on the same level as X11.</p>
-</li>
-<li>
-<p>Strata is the name of the whole Strata project, which is also interchangebly used to reference the compositor. The whole Strata project includes:</p>
-<ul>
-<li>StrataWM - The Wayland Compositor.</li>
-<li>StrataCTL - The command line interface for controlling StrataWM and,</li>
-<li>Kagi - The official hotkey daemon that listens for keypresses and executes commands.</li>
-</ul>
-</li>
-</ol>
+<p>Strata is a <strong>Wayland Compositor</strong>, which is <em><strong>very</strong></em> different from an X11 Window Manager. Strata includes both a server and a client, whereas in an X11 window manager, the WM only comes with the client. The rest is done by the Xorg server.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
 
-                            <a rel="next" href="stratawm.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="strata.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -202,13 +185,29 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
 
-                    <a rel="next" href="stratawm.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="strata.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

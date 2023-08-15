@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="stratawm.html"><strong aria-hidden="true">1.</strong> StrataWM</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="stratawm/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="stratawm/compile_from_source.html"><strong aria-hidden="true">1.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="stratawm/configuring.html"><strong aria-hidden="true">1.2.</strong> Configuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="stratawm/configuring/default.html"><strong aria-hidden="true">1.2.1.</strong> Default Config</a></li><li class="chapter-item expanded "><a href="stratawm/configuring/possible_values.html"><strong aria-hidden="true">1.2.2.</strong> Possible Values</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="kagi.html"><strong aria-hidden="true">2.</strong> Kagi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="kagi/getting_started.html"><strong aria-hidden="true">2.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="kagi/compile_from_source.html"><strong aria-hidden="true">2.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="kagi/configuring.html"><strong aria-hidden="true">2.2.</strong> Configuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="kagi/configuring/default.html"><strong aria-hidden="true">2.2.1.</strong> Default Config</a></li><li class="chapter-item expanded "><a href="kagi/configuring/possible_values.html"><strong aria-hidden="true">2.2.2.</strong> Possible Values</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="strata.html"><strong aria-hidden="true">1.</strong> Strata</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="strata/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.1.</strong> Installing using Binaries</div></li><li class="chapter-item expanded "><a href="strata/compile_from_source.html"><strong aria-hidden="true">1.1.2.</strong> Compiling from Source</a></li></ol></li><li class="chapter-item expanded "><a href="strata/configuring.html"><strong aria-hidden="true">1.2.</strong> Configuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="strata/configuring/default.html"><strong aria-hidden="true">1.2.1.</strong> Default Config</a></li><li class="chapter-item expanded "><a href="strata/configuring/config_options.html"><strong aria-hidden="true">1.2.2.</strong> Config Options</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -166,278 +166,183 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>Strata is a dynamic and sleek Wayland compositor and window manager for GNU/Linux systems. It's written completely in <a href="https://rust-lang.org">Rust</a> using the <a href="https://github.com/smithay/smithay">Smithay</a> library. Strata is made to be modular. It is done this way so that you, the user can mix N match different components to make Strata work the way you want. Strata follows this architecture, which is inspired by <a href="https://github.com/baskerville/bspwm">BSPWM</a>:</p>
-<pre><code class="language-txt">    ╭───────────────╮       ╭───────────╮       ╭──────────╮
-    │ Hotkey Daemon │ ────&gt; │ StrataCTL │ ────&gt; │ StrataWM │
-    ╰───────────────╯       ╰───────────╯       ╰──────────╯
-</code></pre>
-<p>This makes it possible so that you can interchange components, for example, instead of using Kagi, the official Strata hotkey daemon, you can use <a href="https://github.com/waycrate/swhkd">SWHKD</a> or even make your own. As Strata grows in complexity, this architecture will, hopefully, prove to be useful.</p>
+<p>Strata is a cutting-edge, robust and sleek Wayland compositor written in <a href="https://rust-lang.org">Rust</a> using the <a href="https://github.com/smithay/smithay">Smithay</a> library. It is designed to be minimal and flexible yet customizable. It is configured in Lua which makes it possible to add custom functions and scripts. The ability to extend the compositor using plugins will be added in the near future.</p>
 <h2 id="some-useful-information"><a class="header" href="#some-useful-information">Some useful information</a></h2>
-<ol>
-<li>
-<p>StrataWM is a <strong>Wayland Compositor</strong>, which is <em><strong>very</strong></em> different from an X11 Window Manager. In this case, Strata is on the same level as X11.</p>
-</li>
-<li>
-<p>Strata is the name of the whole Strata project, which is also interchangebly used to reference the compositor. The whole Strata project includes:</p>
-<ul>
-<li>StrataWM - The Wayland Compositor.</li>
-<li>StrataCTL - The command line interface for controlling StrataWM and,</li>
-<li>Kagi - The official hotkey daemon that listens for keypresses and executes commands.</li>
-</ul>
-</li>
-</ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="stratawm"><a class="header" href="#stratawm">StrataWM</a></h1>
-<p>Strata is a dynamic and sleek Wayland compositor and window manager for GNU/Linux systems. It's written completely in <a href="https://rust-lang.org">Rust</a> using the <a href="https://github.com/smithay/smithay">Smithay</a> library. Strata is made to be modular. It is done this way so that you, the user can mix N match different components to make Strata work the way you want. Strata follows this architecture, which is inspired by <a href="https://github.com/baskerville/bspwm">BSPWM</a>:</p>
-<pre><code class="language-txt">╭───────────────╮       ╭───────────╮       ╭──────────╮
-│ Hotkey Daemon │ ────&gt; │ StrataCTL │ ────&gt; │ StrataWM │
-╰───────────────╯       ╰───────────╯       ╰──────────╯
-</code></pre>
-<p>This makes it possible so that you can interchange components, for example, instead of using Kagi, the official Strata hotkey daemon, you can use <a href="https://github.com/waycrate/swhkd">SWHKD</a> or even make your own. As Strata grows in complexity, this architecture will, hopefully, prove to be useful.</p>
+<p>Strata is a <strong>Wayland Compositor</strong>, which is <em><strong>very</strong></em> different from an X11 Window Manager. Strata includes both a server and a client, whereas in an X11 window manager, the WM only comes with the client. The rest is done by the Xorg server.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="strata"><a class="header" href="#strata">Strata</a></h1>
+<p>Strata is a cutting-edge, robust and sleek Wayland compositor written in <a href="https://rust-lang.org">Rust</a> using the <a href="https://github.com/smithay/smithay">Smithay</a> library. It is designed to be minimal and flexible yet customizable. It is configured in Lua which makes it possible to add custom functions and scripts. The ability to extend the compositor using plugins will be added in the near future.</p>
+<h2 id="some-useful-information-1"><a class="header" href="#some-useful-information-1">Some useful information</a></h2>
+<p>Strata is a <strong>Wayland Compositor</strong>, which is <em><strong>very</strong></em> different from an X11 Window Manager. Strata includes both a server and a client, whereas in an X11 window manager, the WM only comes with the client. The rest is done by the Xorg server.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<p>Currently, to use Strata, you have to compile it from source using Rust.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="compiling-from-source"><a class="header" href="#compiling-from-source">Compiling from Source</a></h1>
-<p>To compile from source, follow these steps</p>
-<h2 id="1-clone-the-repository"><a class="header" href="#1-clone-the-repository">1. Clone the repository</a></h2>
+<h2 id="dependencies"><a class="header" href="#dependencies">Dependencies</a></h2>
+<p>To compile and use Strata, you need some dependencies which have to be installed using a package manager, such as <code>pacman</code> or <code>apt</code>, depending on your distro. The required dependencies are listed below:</p>
+<ul>
+<li><code>udev</code></li>
+<li><code>wayland</code> </li>
+<li><code>wayland-protocols</code> </li>
+<li><code>libinput</code> </li>
+<li><code>libxkbcommon</code> </li>
+<li><code>libglvnd</code> </li>
+<li><code>seatd</code> </li>
+<li><code>dbus-glib </code></li>
+<li><code>mesa</code></li>
+</ul>
+<p>If you're on Arch or any Arch based distro (such as Artix, Garuda, Manjaro, etc), you can install these using the following command:</p>
+<pre><code class="language-sh">sudo pacman -S udev wayland wayland-protocols libinput libxkbcommon libglvnd seatd dbus-glib mesa
+</code></pre>
+<p>If you're on Debian, or Debian based distros such as Ubuntu, Mate, Zorin, etc... you can install these using this command:</p>
+<pre><code class="language-sh">sudo apt-get install libudev-dev libgbm-dev libxkbcommon-dev libegl1-mesa-dev libwayland-dev libinput-dev libdbus-1-dev libsystemd-dev libseat-dev
+</code></pre>
+<h3 id="1-clone-the-repository"><a class="header" href="#1-clone-the-repository">1. Clone the repository</a></h3>
 <pre><code class="language-sh">git clone https://github.com/stratawm/stratawm
 </code></pre>
-<h2 id="2-installing-using-the-script"><a class="header" href="#2-installing-using-the-script">2. Installing using the script</a></h2>
-<p>There is a a script that installs both StrataWM and StrataCTL. To run it, <code>cd</code> into the cloned repo:</p>
-<pre><code class="language-sh">cd stratawm
-</code></pre>
-<p>then add executable permissions to the script:</p>
-<pre><code class="language-sh">chmod +x install.sh
-</code></pre>
-<p>finally, run the script:</p>
-<pre><code class="language-sh">./install.sh
-</code></pre>
-<p>You can sit back and relax while it installs Strata. It might take a bit of time since it has to compile the source code and all the dependencies but if your system is a bit better than a potato, this won't take much time.</p>
-<h2 id="3-installing-manually"><a class="header" href="#3-installing-manually">3. Installing manually</a></h2>
-<p>To install manually, cd into the cloned repo and then run:</p>
+<h3 id="2-compile-and-install"><a class="header" href="#2-compile-and-install">2. Compile and Install</a></h3>
+<p>To install, <code>cd</code> into the cloned repo and then run:</p>
 <pre><code class="language-sh">cargo install --path .
 </code></pre>
 <p>This'll install it for your user. If you want to install it globally (which is not recommended right now), then run:</p>
 <pre><code class="language-sh">sudo cargo install --path .
 </code></pre>
-<p>Now you have to install StrataCTL. Without it StrataWM is almost unusable. First clone the repo:</p>
-<pre><code class="language-sh">git clone https://github.com/stratawm/stratactl
-</code></pre>
-<p>Then <code>cd</code> into it:</p>
-<pre><code class="language-sh">cd stratactl
-</code></pre>
-<p>And finally install it:</p>
-<pre><code class="language-sh">cargo install --path .
-</code></pre>
-<p>If you want to install it globally, then run:</p>
-<pre><code class="language-sh">sudo cargo install --path .
-</code></pre>
-<h2 id="4-next-steps"><a class="header" href="#4-next-steps">4. Next steps</a></h2>
-<p>Congratulations, if all went well, you should have StrataWM and StrataCTL installed on your system. Next you'd want to install Kagi or a hotkey daemon of your choice. If you want to install Kagi, go to the chapter on the left hand side for compiling from source. Then next chapter will teach you how to configure Strata.</p>
+<p>You can sit back and relax while it installs Strata. It might take a bit of time since it has to compile the source code and all the dependencies but if your system is a bit better than a potato, this won't take much time.</p>
+<h2 id="next-steps"><a class="header" href="#next-steps">Next steps</a></h2>
+<p>Congratulations! If all went well, you should have Strata installed on your system. The next chapter will teach you how to configure Strata.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="configuring"><a class="header" href="#configuring">Configuring</a></h1>
-<p>The configuration for Strata is done using TOML. Support for extending functionality with a scripting language like Lua will be added in the future.</p>
+<p>Strata is configured in <a href="https://www.lua.org/">Lua</a>, a lightweight, high-level, multi-paradigm programming language. Lua allows you to customize Strata to a level which is very difficult to do in other config formats such as TOML or YAML.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="default-config"><a class="header" href="#default-config">Default Config</a></h1>
-<pre><code class="language-toml">[autostart]
-[[autostart.cmd]]
-cmd = &quot;kitty --title Terminal&quot;
+<pre><code class="language-lua">local strata = require(&quot;strata&quot;)
 
-[[autostart.cmd]]
-cmd = &quot;kagi&quot;
+local function close_all_windows()
+	for _, window in ipairs(strata.current_workspace:get_windows()) do
+		window:close()
+	end
+end
 
-[general]
-workspaces = 9
-in_gaps = 4
-out_gaps = 8
-kb_repeat = [500, 250]
+strata.set_config {
+	autostart = {
+		{ &quot;kitty --title Terminal&quot; },
+	},
+	general = {
+		workspaces = 9,
+		gaps_in = 8,
+		gaps_out = 12,
+		kb_repeat = { 500, 250 },
+	},
+	decorations = {
+		border = {
+			width = 2,
+			active = &quot;#FFF&quot;,
+			inactive = &quot;#131418&quot;,
+			radius = 5,
+		},
+		window = {
+			opacity = 0.9,
+		},
+		blur = {
+			enabled = true,
+			size = 2,
+			passes = 3,
+			optimize = true,
+		},
+		shadow = {
+			enabled = true,
+			size = 2,
+			blur = 3,
+			color = &quot;#FFF&quot;,
+		},
+	},
+	tiling = {
+		layout = &quot;dwindle&quot;,
+	},
+	animations = {
+		enabled = true,
+	},
+	bindings = {
+		{
+			keys = { &quot;CTRL&quot;, &quot;SHIFT&quot;, &quot;Q&quot; },
+			cmd = close_all_windows,
+		},
+		{
+			keys = { &quot;WIN&quot;, &quot;RETURN&quot; },
+			cmd = strata.cmd.spawn(&quot;kitty --title Terminal&quot;),
+		},
+		{
+			keys = { &quot;WIN&quot;, &quot;SPACE&quot; },
+			cmd = strata.cmd.spawn(&quot;rofi --show drun&quot;),
+		},
+	},
+	rules = {
+		{
+			triggers = { { event = &quot;win_open_pre&quot;, class_name = &quot;firefox&quot; } },
+			action = function(window) window.send_to_workspace(1) end,
+		},
+		{
+			triggers = {
+				{ event = &quot;win_open_pre&quot;, class_name = &quot;mpv&quot; },
+				{ event = &quot;win_open_pre&quot;, workspace = 1, class_name = &quot;kitty&quot; },
+			},
+			action = function(window) window.set_floating() end,
+		},
+	},
+}
 
-[window_decorations]
-border_width = 2
-border_active = &quot;#FFF&quot;
-border_inactive = &quot;#131418&quot;
-border_radius = 5
-window_opacity = 0.9
-blur_enable = true
-blur_size = 2
-blur_passes = 2
-blur_optimization = true
-shadows_enabled = true
-shadow_size = 4
-shadow_blur = 3
-shadow_color = &quot;#FFF&quot;
+strata.set_bindings {
+	{
+		keys = { &quot;CTRL&quot;, &quot;SHIFT&quot;, &quot;Q&quot; },
+		cmd = close_all_windows,
+	},
+	{
+		keys = { &quot;WIN&quot;, &quot;RETURN&quot; },
+		cmd = strata.cmd.spawn(&quot;kitty --title Terminal&quot;),
+	},
+	{
+		keys = { &quot;WIN&quot;, &quot;SPACE&quot; },
+		cmd = strata.cmd.spawn(&quot;rofi --show drun&quot;),
+	},
+}
 
-[tiling]
-layout = &quot;binary_tree&quot; # Available: binary_tree, master, stack
+strata.set_rules {
+	{
+		triggers = { event = &quot;win_open_pre&quot;, class_name = &quot;firefox&quot; },
+		action = function(window) window.send_to_workspace(1) end,
+	},
+	{
+		triggers = {
+			{ event = &quot;win_open_pre&quot;, class_name = &quot;mpv&quot; },
+			{ event = &quot;win_open_pre&quot;, workspace = 1, class_name = { &quot;kitty&quot;, &quot;wezterm&quot; } },
+		},
+		action = function(window) window.set_floating() end,
+	},
 
-[animations]
-anim_enabled = true
+	strata.rules.bind_to_workspace(1, &quot;firefox&quot;),
+	strata.rules.bind_to_workspace {
+		{ 1, &quot;firefox&quot; },
+		{ 2, &quot;neovide&quot; },
+		{ 10, &quot;slack&quot; },
+	},
 
-[rules]
-[[rules.workspace]]
-workspace = 1
-class_name = &quot;kitty&quot;
-
-[[rules.workspace]]
-workspace = 2
-class_name = &quot;Brave-browser&quot;
-
-[[rules.workspace]]
-workspace = 3
-class_name = &quot;Code&quot;
-
-[[rules.floating]]
-class_name = &quot;pavucontrol&quot;
+	strata.rules.set_floating(&quot;mpv&quot;),
+}
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="possible-values"><a class="header" href="#possible-values">Possible Values</a></h1>
-<h2 id="autostart"><a class="header" href="#autostart"><code>autostart</code></a></h2>
-<p><strong>Description</strong> - Programs that are to be started when launching Strata</p>
-<p><strong>Values</strong> - </p>
-<ol>
-<li><strong><code>cmd</code></strong> - Command to be executed</li>
-</ol>
-<p><strong>Example</strong> -</p>
-<pre><code class="language-toml">[autostart]
-[[autostart.cmd]]
-cmd = &quot;kagi&quot;
-</code></pre>
-<h2 id="general"><a class="header" href="#general"><code>general</code></a></h2>
-<p><strong>Description</strong> - General settings for Strata</p>
-<p><strong>Values</strong> -</p>
-<ol>
-<li><strong><code>workspaces</code></strong> - Number of total workspaces</li>
-<li><strong><code>in_gaps</code></strong> - Gaps between windows</li>
-<li><strong><code>out_gaps</code></strong> - Gaps outside window edges</li>
-<li><strong><code>kb_repeat</code></strong> - Repeat settings for keyboard in the form <code>[repeat_delay, repeat_rate]</code> where <code>repeat_delay</code> is the amount of time before the pressed key starts auto repeating (in ms) and <code>repeat_rate</code> is the delay between each repeat key press</li>
-</ol>
-<p><strong>Default Values</strong> -</p>
-<pre><code class="language-toml">[general]
-workspaces = 9
-in_gaps = 4
-out_gaps = 8
-kb_repeat = [500, 250]
-</code></pre>
-<h2 id="window_decorations"><a class="header" href="#window_decorations"><code>window_decorations</code></a></h2>
-<p><strong>Description</strong> - Decorations for windows</p>
-<p><strong>Values</strong> - </p>
-<ol>
-<li><strong><code>border_width</code></strong> - The width of the window border in pixels.</li>
-<li><strong><code>border_active</code></strong> - The color of the border when the window is active.</li>
-<li><strong><code>border_inactive</code></strong> - The color of the border when the window is inactive.</li>
-<li><strong><code>border_radius</code></strong> - The radius of the window corners in pixels.</li>
-<li><strong><code>window_opacity</code></strong> - The opacity of the window, ranging from 0.0 (completely transparent) to 1.0 (fully opaque).</li>
-<li><strong><code>blur_enable</code></strong> - A boolean value indicating whether window blur is enabled.</li>
-<li><strong><code>blur_size</code></strong> - The size of the window blur effect in pixels.</li>
-<li><strong><code>blur_passes</code></strong> - The number of blur passes to apply to the window. More the passes, more refined is the blur.</li>
-<li><strong><code>blur_optimization</code></strong> - A boolean value indicating whether optimization is applied to the blur effect.</li>
-<li><strong><code>shadows_enabled</code></strong> - A boolean value indicating whether window shadows are enabled.</li>
-<li><strong><code>shadow_size</code></strong> - The size of the window shadow in pixels.</li>
-<li><strong><code>shadow_blur</code></strong> - The blur level of the window shadow.</li>
-<li><strong><code>shadow_color</code></strong> - The color of the window shadow.</li>
-</ol>
-<p><strong>Default Values</strong>-</p>
-<pre><code class="language-toml">[window_decorations]
-border_width = 2
-border_active = &quot;#FFF&quot;
-border_inactive = &quot;#131418&quot;
-border_radius = 5
-window_opacity = 0.9
-blur_enable = true
-blur_size = 2
-blur_passes = 2
-blur_optimization = true
-shadows_enabled = true
-shadow_size = 4
-shadow_blur = 3
-shadow_color = &quot;#FFF&quot;
-</code></pre>
-<h2 id="tiling"><a class="header" href="#tiling"><code>tiling</code></a></h2>
-<p><strong>Description</strong> - Values for configuring the behaviour of tiling.</p>
-<p><strong>Values</strong> -</p>
-<ol>
-<li><code>layout</code> - The default layout to be used when tiling.</li>
-</ol>
-<p><strong>Default Values</strong>-</p>
-<pre><code class="language-toml">[tiling]
-layout = &quot;binary_tree&quot;
-</code></pre>
-<h2 id="animations"><a class="header" href="#animations"><code>animations</code></a></h2>
-<p><strong>Description</strong> - Values for configuring window animations</p>
-<p><strong>Values</strong> -</p>
-<ol>
-<li><code>anim_enabled</code> - Whether or not animations are enabled.</li>
-</ol>
-<p><strong>Default Values</strong></p>
-<pre><code class="language-toml">[animations]
-anim_enabled = true
-</code></pre>
-<h2 id="rules"><a class="header" href="#rules"><code>rules</code></a></h2>
-<p><strong>Description</strong> - Window rules</p>
-<p><strong>Values</strong> -</p>
-<ol>
-<li>
-<p><code>workspace</code> </p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="config-options"><a class="header" href="#config-options">Config Options</a></h1>
+<p>The config consists of a main module called <code>strata</code> which exposes a bunch of helper functions which are used to configure the compositor. This page shows all the functions and options available.</p>
 <ul>
-<li>
-<p><strong>Description</strong> - Workspce rules. Defines which windows are to be moved to which workspaces</p>
-</li>
-<li>
-<p><strong>Values</strong> -</p>
-<ol>
-<li><code>workspace</code> - The workspace ID</li>
-<li><code>class_name</code> - The window name. </li>
-</ol>
-</li>
+<li><a href="strata/configuring/config_options.html#strata"><code>strata</code></a>
+<ul>
+<li><a href="strata/configuring/config_options.html#cmd"><code>cmd</code></a>
+<ul>
+<li><a href="strata/configuring/config_options.html#spawn"><code>spawn</code></a></li>
 </ul>
 </li>
-<li>
-<p><code>floating</code></p>
-<ul>
-<li>
-<p><strong>Description</strong> - Floating rules. Defines which windows should float by default.</p>
-</li>
-<li>
-<p><strong>Values</strong> -</p>
-<ol>
-<li><code>class_name</code> - The window name.</li>
-</ol>
-</li>
+<li><a href="strata/configuring/config_options.html#set_config"><code>set_config</code></a></li>
+<li><a href="strata/configuring/config_options.html#set_bindings"><code>set_bindings</code></a></li>
+<li><a href="strata/configuring/config_options.html#set_rules"><code>set_rules</code></a></li>
 </ul>
 </li>
-</ol>
-<p><strong>Default Values</strong></p>
-<pre><code class="language-toml">[rules]
-[[rules.workspace]]
-workspace = 1
-class_name = &quot;kitty&quot;
-
-[[rules.workspace]]
-workspace = 2
-class_name = &quot;Brave-browser&quot;
-
-[[rules.workspace]]
-workspace = 3
-class_name = &quot;Code&quot;
-
-[[rules.floating]]
-class_name = &quot;pavucontrol&quot;
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="kagi"><a class="header" href="#kagi">Kagi</a></h1>
-<p>Kagi is a hotkey daemon built using <a href="https://rust-lang.org">Rust</a> and <a href="https://docs.rs/input">libinput</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started-1"><a class="header" href="#getting-started-1">Getting Started</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="compiling-from-source-1"><a class="header" href="#compiling-from-source-1">Compiling from Source</a></h1>
-<p>To compile from source, follow these steps</p>
-<h2 id="1-clone-the-repository-1"><a class="header" href="#1-clone-the-repository-1">1. Clone the repository</a></h2>
-<pre><code class="language-sh">git clone https://github.com/stratawm/kagi
-</code></pre>
-<h2 id="2-compile-and-install"><a class="header" href="#2-compile-and-install">2. Compile and install</a></h2>
-<p>Now <code>cd</code> into the cloned repository using:</p>
-<pre><code class="language-sh">cd kagi
-</code></pre>
-<p>then run:</p>
-<pre><code class="language-sh"> cargo install --path .
-</code></pre>
-<p>This'll install it for your user. If you want to install it globally, run:</p>
-<pre><code class="language-sh">sudo cargo install --path .
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="configuring-1"><a class="header" href="#configuring-1">Configuring</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="default-config-1"><a class="header" href="#default-config-1">Default Config</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="possible-values-1"><a class="header" href="#possible-values-1">Possible Values</a></h1>
+</ul>
+<h2 id="strata-1"><a class="header" href="#strata-1"><code>strata</code></a></h2>
+<p>This is the main module which contains all helper functions and variables accessible to the user.</p>
 
                     </main>
 
@@ -456,6 +361,22 @@ class_name = &quot;pavucontrol&quot;
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

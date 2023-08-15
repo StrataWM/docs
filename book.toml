@@ -6,6 +6,9 @@ src = "src"
 title = "Strata"
 description = "Documentation for Strata"
 
+[preprocessor.emoji]
+renderer = ["html"]
+
 [build]
 build-dir = "docs"
 create-missing = true
