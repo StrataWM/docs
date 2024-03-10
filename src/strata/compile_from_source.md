@@ -17,7 +17,7 @@ To compile and use Strata, you need some dependencies which have to be installed
 If you're on Arch or any Arch based distro (such as Artix, Garuda, Manjaro, etc), you can install these using the following command:
 
 ```sh
-sudo pacman -S udev wayland wayland-protocols libinput libxkbcommon libglvnd seatd dbus-glib mesa
+sudo pacman -S --needed udev wayland wayland-protocols libinput libxkbcommon libglvnd seatd dbus-glib mesa
 ```
 
 If you're on Debian, or Debian based distros such as Ubuntu, Mate, Zorin, etc... you can install these using this command:
